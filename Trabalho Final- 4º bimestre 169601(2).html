@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Trabalho de S.P.I.1 - 169601</title>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
+<style>
+html, body{
+    margin: 0;
+    height: 100%;
+}
+.painel_com_nome_do_site{
+    background-color: grey;
+    height:  15%;
+    margin-top: -1%;
+}
+.nome{
+    height:  15%;
+    font-size: 175%;
+    margin-left: 3.5%;
+}
+
+.titulo_principal{
+    text-align: center;
+}
+.titulo_secundario{
+    text-align: center;
+    width: 100%;
+    font-size: 185%;
+
+}
+.painel_do_input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 5%;
+    column-gap: 15%;
+    height: 250%;
+    background-color: #73eb15;
+}
+.inputs {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    height: 15%;
+    width: 35%;
+    background-color: #d4f3a5;
+    font-size: 100%;
+    margin-top: -5%;
+    column-gap: 1%;
+}
+.titulo_interno{
+    display: flex;
+    width: 100%;
+    font-size: 250%;
+    justify-content: center;
+    margin-top: 1%;
+    margin-bottom: 0;
+}
+.imagem_interna{
+    width: 30%;
+    height: 40%;
+    margin-bottom: -10%;
+    margin-left: 5%;
+}
+.primeira_linha{
+    border: 4px solid black;
+    font-size: 120%;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+.segunda_linha{
+    border: 4px solid black;
+    margin-left: 36%;
+    font-size: 120%;
+    margin-bottom: 10%;
+    margin-top: -5%;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+.terceira_linha{
+    column-gap: 1%;
+    margin-top: -5%;
+    margin-left: 4%;
+    font-size: 120%;
+    width: 100%
+}
+.vitaminas{
+  border: 4px solid black;
+  padding-right: 2px;
+  padding-left: 2px;
+  margin-left: 1%;
+}
+.primeira_parte_input{
+  border: 4px solid black;
+  font-size: 175%;
+  text-align: center;
+  background-color: inherit;
+  width: 75%;
+  height: 13%;
+  font-size: 155%;
+  margin-left: 10%;
+  margin-top: -5%;
+}
+.botao_um{
+  font-size: 175%;
+  margin-top: -10%;
+  width: 25%;
+  height: 3%;
+  border: 3px solid black;
+  cursor: pointer;
+}
+.botao_um:hover {
+  background-color: #55c100;
+  color : white;
+}
+button:active{
+  background-color: #3e8e41;
+  transform: scale(0.98);
+}
+.grafico_um{
+  width: 90%;
+  height: 75%;
+  background-color: #00c1c1;
+}
+.graficos{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #00c1c1;
+    column-gap: 5%;
+    height: 75%;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.grafico_carb{
+  display: flex;
+  width: 25%;
+  height: 65%;
+  text-align: center;
+}
+.grafico_prot{
+  display: flex;
+  width: 25%;
+  height: 65%;
+  text-align: center;
+}
+.grafico_gord{
+  display: flex;
+  width: 25%;
+  height: 65%;
+  text-align: center;
+}
+
+.segunda_parte{
+  height: 65%;
+  background-color: blue;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nome_grafico{
+  width: 100%;
+  font-size: 175%;
+  margin-top: -3%;
+}
+
+.botao_dois{
+  font-size: 175%;
+  width: 20%;
+  height: 15%;
+  border: 3px solid black;
+  margin-left: 20%;
+  cursor: pointer;
+}
+.botao_dois:hover {
+  background-color: #008fc1;
+  color : white;
+}
+
+.nome_grafico{
+  margin-left: 67%;
+  width: 100%;
+  color : white;
+}
+
+table{
+  width: 45%;
+  height: 55%;
+  background-color: #008fc1;
+  border: 2px solid white;
+  border-collapse: collapse;
+  margin-left: 10%;
+  margin-top: -5%;
+}
+.refeicao{
+  font-size: 175%;
+}
+th, td {
+  border: 3px solid white;
+  text-align: left;
+  vertical-align: top;
+  color: white;
+  font-size: 125%%;
+  width: 20%;
+}
+.titulo_mesa{
+  font-size: 175%;
+}
+.segunda_parte_input{
+  font-size: 175%;
+  background-color: inherit;
+  width: 97%;
+  height: 95%;
+}
+.titulo_input{
+  font-size: 175%;
+  color: white;
+}
+.input_metas{
+  display: flex;
+  border: 4px solid black;
+  height: 5%;
+  width: 15%;
+  text-align: center;
+  background-color: inherit;
+  margin-left: -3%;
+  font-size: 155%;
+  color: white;
+
+}
+.div_metas{
+  display: flex;
+  background-color: blue;
+  column-gap: 5%;
+  height: 55%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  row-gap: 5%;
+  margin-top: -2%;
+}
+.grafico_metas{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 70%;
+  height: 85%;
+  row-gap: 5%;
+}
+.botao_meta{
+  font-size: 175%;
+  width: 20%;
+  height: 15%;
+  border: 3px solid black;
+  cursor: pointer;
+}
+.botao_meta:hover {
+  background-color: #008fc1;
+  color : white;
+}
+
+</style>
+
+</head>
+
+<body>
+<div class="painel_com_nome_do_site">
+  <h1 class="titulo_principal"> Trabalho Final- 4º bimestre</h1>
+  <p class="nome">João Amoris Arenda - 169601</p>
+</div>
+
+<div class="painel_do_input">
+  <h2 class="titulo_secundario" >Painel de inputs</h2>
+
+<div class="inputs">
+    <p class="titulo_interno">100g Arroz branco</p>
+    <img src="imagens/arrozbranco.jfif" title="Imagem de Arroz branco" class="imagem_interna">
+    <p class="primeira_linha">Carboidratos: 28200mg</p>
+    <p class="primeira_linha">Proteínas: 2700mg</p>
+    <p class="segunda_linha">Gorduras: 300mg</p>
+    <p class="terceira_linha"><span class="vitaminas">Vitaminas:</span> <span class="vitaminas">Não tem</span></p>
+    <input type="text" class="primeira_parte_input"  placeholder="coloque a quantidade aqui">
+</div>
+
+<div class="inputs">
+    <p class="titulo_interno">100g Feijão</p>
+    <img src="imagens/feijao.webp" title="Imagem de feijão" class="imagem_interna">
+    <p class="primeira_linha">Carboidratos: 20000mg</p>
+    <p class="primeira_linha">Proteínas: 9000mg</p>
+    <p class="segunda_linha">Gorduras: 500mg</p>
+    <p class="terceira_linha"><span class="vitaminas">Vitaminas:</span> <span class="vitaminas">B9</span></p>
+    <input type="text"  class="primeira_parte_input"  placeholder="coloque a quantidade aqui">
+</div>
+
+<div class="inputs">
+    <p class="titulo_interno">100g Pão Frânces</p>
+    <img src="imagens/paofrances.avif" title="Imagem de um pão francês" class="imagem_interna">
+    <p class="primeira_linha">Carboidratos: 50000mg</p>
+    <p class="primeira_linha">Proteínas: 2700mg</p>
+    <p class="segunda_linha">Gorduras: 2500mg</p>
+    <p class="terceira_linha"><span class="vitaminas">Vitaminas:</span> <span class="vitaminas">Não tem</span></p>
+    <input type="text" class="primeira_parte_input"  placeholder="coloque a quantidade aqui">
+</div>
+
+<div class="inputs">
+    <p class="titulo_interno">100g Laranja</p>
+    <img src="imagens/laranja.avif" title="Imagem de laranja" class="imagem_interna">
+    <p class="primeira_linha">Carboidratos: 11750mg</p>
+    <p class="primeira_linha">Proteínas: 9000mg</p>
+    <p class="segunda_linha">Gorduras: 2500mg</p>
+    <p class="terceira_linha"><span class="vitaminas">Vitaminas:</span> <span class="vitaminas">C</span><span class="vitaminas">A</span></p>
+    <input type="text" class="primeira_parte_input"  placeholder="coloque a quantidade aqui">
+</div>
+
+<div class="inputs">
+    <p class="titulo_interno">100g Carne bovina</p>
+    <img src="imagens/carnebovina.webp" title="Imagem de carne bovina" class="imagem_interna">
+    <p class="primeira_linha">Carboidratos: 0mg</p>
+    <p class="primeira_linha">Proteínas: 26000mg</p>
+    <p class="segunda_linha">Gorduras: 20000mg</p>
+    <p class="terceira_linha"><span class="vitaminas">Vitaminas:</span> <span class="vitaminas">Não tem</span></p>
+    <input type="text" class="primeira_parte_input" placeholder="coloque a quantidade aqui">
+</div>
+
+<div class="inputs">
+    <p class="titulo_interno">100g Carne de Frango</p>
+    <img src="imagens/carnefrango.jpg" title="Imagem de carne de frango" class="imagem_interna">
+    <p class="primeira_linha">Carboidratos: 0mg</p>
+    <p class="primeira_linha">Proteínas: 31000mg</p>
+    <p class="segunda_linha">Gorduras: 20000mg</p>
+    <p class="terceira_linha"><span class="vitaminas">Vitaminas:</span> <span class="vitaminas">Não tem</span></p>
+    <input type="text" class="primeira_parte_input"  placeholder="coloque a quantidade aqui">
+</div>
+
+<div class="inputs">
+    <p class="titulo_interno">100g Ovo </p>
+    <img src="imagens/ovo.jfif" title="Imagem de ovo" class="imagem_interna">
+    <p class="primeira_linha">Carboidratos: 720mg</p>
+    <p class="primeira_linha">Proteínas: 13000mg</p>
+    <p class="segunda_linha">Gorduras: 10000mg</p>
+    <p class="terceira_linha"><span class="vitaminas">Vitaminas:</span> <span class="vitaminas">B12</span><span class="vitaminas">D</span></p>
+    <input type="text" class="primeira_parte_input"  placeholder="coloque a quantidade aqui">
+</div>
+
+<div class="inputs">
+    <p class="titulo_interno">100g Café</p>
+    <img src="imagens/cafe.jpg" title="Imagem de café" class="imagem_interna">
+    <p class="primeira_linha">Carboidratos: 0mg</p>
+    <p class="primeira_linha">Proteínas: 0mg</p>
+    <p class="segunda_linha">Gorduras: 0mg</p>
+    <p class="terceira_linha"><span class="vitaminas">Vitaminas:</span> <span class="vitaminas">Não tem</span></p>
+    <input type="text" class="primeira_parte_input"  placeholder="coloque a quantidade aqui">
+</div>
+
+<div class="inputs">
+    <p class="titulo_interno">100g Banana</p>
+    <img src="imagens/banana.jfif" title="Imagem de banana" class="imagem_interna">
+    <p class="primeira_linha">Carboidratos: 22840mg</p>
+    <p class="primeira_linha">Proteínas: 1090mg</p>
+    <p class="segunda_linha">Gorduras: 330mg</p>
+    <p class="terceira_linha"><span class="vitaminas">Vitaminas:</span> <span class="vitaminas">B6</span><span class="vitaminas">C</span></p>
+    <input type="text" class="primeira_parte_input" placeholder="coloque a quantidade aqui">
+</div>
+
+<div class="inputs">
+    <p class="titulo_interno">100g Batata Branca</p>
+    <img src="imagens/batatabranca.jfif" title="Imagem de batata branca" class="imagem_interna">
+    <p class="primeira_linha">Carboidratos: 17580mg</p>
+    <p class="primeira_linha">Proteínas: 2020mg</p>
+    <p class="segunda_linha">Gorduras: 100mg</p>
+    <p class="terceira_linha"><span class="vitaminas">Vitaminas:</span> <span class="vitaminas"> C</span></p>
+    <input type="text" class="primeira_parte_input"  placeholder="coloque a quantidade aqui">
+</div>
+<button class="botao_um">Gerar gráficos </button>
+</div>
+
+<div class="graficos">
+  <h2 class="titulo_secundario" >Gráfico de calorias</h2>
+  <div class="grafico_um"></div>
+</div>
+
+<div class="graficos">
+  <h2 class="titulo_secundario" >Graficos da %</h2>
+    <div class="grafico_carb"></div>
+    <div class="grafico_prot"></div>
+    <div class="grafico_gord"></div>
+</div>
+</div>
+
+<div class="segunda_parte">
+<h2 class="titulo_secundario" >Gráficos para semana</h2>
+
+<p class="nome_grafico">Refeições do dia</p>
+
+<button class="botao_dois"> adicionar refeições ao dia </button>
+
+<table>
+<tr class="titulo_mesa">
+  <th >Refeições</th>
+  <th >Proteínas</th>
+  <th >Carboidratos</th>
+  <th >Gorduras</th>
+</tr>
+<tr>
+  <th class="refeicao">1ª</th>
+  <th> <input type="text" class="segunda_parte_input" name="proteina" ></th>
+  <th>  <input type="text" class="segunda_parte_input" name="carboidrato"></th>
+  <th>  <input type="text" class="segunda_parte_input" name="gordura"></th>
+</tr>
+<tr>
+  <th class="refeicao">2ª</th>
+  <th> <input type="text" class="segunda_parte_input" name="proteina" ></th>
+  <th>  <input type="text" class="segunda_parte_input" name="carboidrato"></th>
+  <th>  <input type="text" class="segunda_parte_input" name="gordura"></th>
+</tr>
+<tr>
+  <th class="refeicao">3ª</th>
+  <th> <input type="text" class="segunda_parte_input" name="proteina" ></th>
+  <th>  <input type="text" class="segunda_parte_input" name="carboidrato"></th>
+  <th>  <input type="text" class="segunda_parte_input" name="gordura"></th>
+</tr>
+<tr>
+  <th class="refeicao">4ª</th>
+  <th> <input type="text" class="segunda_parte_input" name="proteina" ></th>
+  <th>  <input type="text" class="segunda_parte_input" name="carboidrato"></th>
+  <th>  <input type="text" class="segunda_parte_input" name="gordura"></th>
+</tr>
+</table>
+</div>
+
+<div class="div_metas">
+
+<span class="titulo_input">Carboidratos:</span>
+<input type="text" class="input_metas" name="meta_carboidratos" placeholder="meta diária" >
+
+<span class="titulo_input">Gordura:</span>
+<input type="text" class="input_metas" name="meta_gordura" placeholder="meta diária">
+
+<span class="titulo_input">Proteina:</span>
+<input type="text" class="input_metas" name="meta_proteina" placeholder="meta diária">
+
+<div class="grafico_metas"></div>
+<button class="botao_meta">adicionar dia a semana</button>
+</div>
+
+<script>
+$(document).ready(function () {
+  $('.botao_um').on('click', function () {
+    const quantidades = $('.primeira_parte_input').map(function () {
+        return parseFloat($(this).val()) || 0;
+    }).get();
+
+      const lista_alimentos = [
+          "Arroz branco", "Feijão", "Pão francês", "Laranja",
+          "Carne bovina", "Carne de frango", "Ovo",
+          "Café", "Banana", "Batata branca"
+      ];
+      const kcal_grama_alimentos = [
+          1.3 , 1.4, 2.7, 0.6, 2.5,
+         2.2, 1.4, 0, 0.9 , 0.7
+      ];
+      const kcal_por_alimento = quantidades.map((qtd, index) => qtd * (kcal_grama_alimentos[index] ));
+
+      const kcal_por_alimento_finais = [];
+      const lista_alimentos_finais = [];
+      $.each(kcal_por_alimento, function(index, kcal) {
+          if (kcal > 0) {
+              kcal_por_alimento_finais.push(Math.round(kcal));
+              lista_alimentos_finais.push(lista_alimentos[index]);
+          }
+      });
+
+      Highcharts.chart($(".grafico_um")[0], {
+          chart: { type: "column" },
+          title: { text: "Valor Energético" },
+          xAxis: { categories: lista_alimentos_finais },
+          yAxis: { title: { text: "Valores" } },
+          series: [{ name: "KCal", data: kcal_por_alimento_finais }]
+      });
+
+      ////////////// GRAFICOS 2
+      const carboidrato_cemgrama_alimentos = [
+          28200 , 20000  , 50000 , 11750 ,  0  ,
+          0 , 720  , 0  ,  22840  , 17580
+      ];
+
+      const carb_na_quantidade = carboidrato_cemgrama_alimentos.map((carb_cemg , index) => (carb_cemg/ 100000) * (quantidades[index] ));
+      const sum_carb = carb_na_quantidade.reduce((acc, val) => acc + val, 0);
+      const carboidratos_porcentagem = carb_na_quantidade.map(carb_qtd => Math.round(100 * (carb_qtd / sum_carb)));
+
+      const carboidratos_porcentagem_final = []
+      const alimentos_carboidratos_porcentagem_final = []
+      $.each(carboidratos_porcentagem, function(index, carb_porc) {
+          if (carb_porc > 0) {
+              carboidratos_porcentagem_final.push(carb_porc);
+              alimentos_carboidratos_porcentagem_final.push(lista_alimentos[index]);
+          }
+      });
+
+      Highcharts.chart($(".grafico_carb")[0], {
+          chart: { type: "pie" },
+          title: { text: "Gráfico da origem do carboidratos:" + " " + Math.round(sum_carb) + "g totais" },
+          series: [
+            {
+              name: "Origem dos carboidratos (%)",
+              data: carboidratos_porcentagem_final.map((value, i) => ({ name: alimentos_carboidratos_porcentagem_final[i], y: value })),
+            },
+          ],
+        });
+
+    const proteina_cemgrama_alimentos = [
+        2700 , 9000  , 9000 , 940 , 26000   ,
+        31000 , 13000 ,  0  ,  1090  , 2020
+    ];
+
+    const prot_na_quantidade = proteina_cemgrama_alimentos.map((prot_cemg, index) => (prot_cemg/ 100000) * (quantidades[index] ));
+    const sum_prot = prot_na_quantidade.reduce((acc, val) => acc + val, 0);
+    const prot_porcentagem = prot_na_quantidade.map(prot_qtd => Math.round(100 * (prot_qtd / sum_prot)));
+
+    const prot_porcentagem_final = []
+    const alimentos_proteina_porcentagem_final = []
+    $.each(prot_porcentagem, function(index, prot_porc) {
+        if (prot_porc > 0) {
+            prot_porcentagem_final.push(prot_porc);
+            alimentos_proteina_porcentagem_final.push(lista_alimentos[index]);
+        }
+    });
+
+    Highcharts.chart($(".grafico_prot")[0], {
+        chart: { type: "pie" },
+        title: { text: "Gráfico da origem do proteína:" + " " + Math.round(sum_prot) + "g totais" },
+        series: [
+          {
+            name: "Origem das proteínas (%)",
+            data: prot_porcentagem_final.map((value, i) => ({ name: alimentos_proteina_porcentagem_final[i], y: value })),
+          },
+        ],
+      });
+
+      const gordura_cemgrama_alimentos = [
+        300 , 500  , 2500 , 120 ,20000 ,
+        3600 , 10000  , 0  ,  330  , 100
+    ];
+
+    const gord_na_quantidade = gordura_cemgrama_alimentos.map((gord_cemg, index) => (gord_cemg/ 100000) * (quantidades[index] ));
+    const sum_gord = gord_na_quantidade.reduce((acc, val) => acc + val, 0);
+    const gord_porcentagem = gord_na_quantidade.map(gord_qtd => Math.round(100 * (gord_qtd / sum_gord)));
+    
+    const gord_porcentagem_final = []
+    const alimentos_gordura_porcentagem_final = []
+    $.each(gord_porcentagem, function(index, gord_porc) {
+        if (gord_porc > 0) {
+            gord_porcentagem_final.push(gord_porc);
+            alimentos_gordura_porcentagem_final.push(lista_alimentos[index]);
+        }
+    });
+
+    Highcharts.chart($(".grafico_gord")[0], {
+        chart: { type: "pie" },
+        title: { text: "Gráfico da origem da gordura:" + " " +  Math.round(sum_gord) + "g totais" },
+        series: [
+          {
+            name: "Origem da gordura (%)" ,
+            data: gord_porcentagem_final.map((value, i) => ({ name: alimentos_gordura_porcentagem_final[i], y: value })),
+          },
+        ],
+      });
+  });
+  //////////////////
+
+  let proteina = []
+  let carboidrato = []
+  let gordura = []
+
+  $('.botao_dois').on('click', function () {
+    let total_prot = 0;
+    $("input[name='proteina']").each(function () {
+        const prot_tabela = parseFloat($(this).val())|| 0;
+        total_prot += prot_tabela;
+      });
+    proteina.push(total_prot);
+
+    let total_carb = 0;
+    $("input[name='carboidrato']").each(function () {
+        const carb_tabela = parseFloat($(this).val())|| 0 ;
+        total_carb += carb_tabela;
+      });
+    carboidrato.push(total_carb);
+
+    let total_gord = 0;
+    $("input[name='gordura']").each(function () {
+        const gord_tabela = parseFloat($(this).val())|| 0 ;
+        total_gord += gord_tabela;
+    });
+    gordura.push(total_gord);
+  });
+
+    let dia = [];
+    let meta_carb = [];
+    let meta_prot = [];
+    let meta_gord = [];
+    let meta_porcentagem_carb = [];
+    let meta_porcentagem_prot =[];
+    let meta_porcentagem_gord = [];
+
+    $('.botao_meta').on('click', function () {
+
+      if (  meta_carb.length < (carboidrato.length) || meta_carb.length == (carboidrato.length -1)) {
+      const contador = dia.length + 1;
+      dia.push(String(contador));
+
+      const meta_carboidratos = parseFloat($("[name='meta_carboidratos']").val()) || 0;
+      meta_carb.push(meta_carboidratos);
+
+      const meta_proteina = parseFloat($("[name='meta_proteina']").val())|| 0;
+      meta_prot.push(meta_proteina);
+
+      const meta_gordura = parseFloat($("[name='meta_gordura']").val())|| 0;
+      meta_gord.push(meta_gordura);
+
+      const ultimo_input = dia.length -1;
+      meta_porcentagem_carb.push(Math.round((carboidrato[ultimo_input] / meta_carb[ultimo_input] ) * 100));
+      meta_porcentagem_prot.push(Math.round((proteina[ultimo_input] / meta_prot[ultimo_input] ) * 100));
+      meta_porcentagem_gord.push(Math.round((gordura[ultimo_input] / meta_gord[ultimo_input] ) * 100));
+    };
+
+      Highcharts.chart($(".grafico_metas")[0], {
+            chart: { type: "line" },
+            title: { text: "Meta Diária em %" , align:"left", style:{fontSize: '175%'}  },
+            xAxis: { title: {text:"Dias"},categories: dia },
+            yAxis: { title: { text: "Porcentagem" }, },
+            series: [
+                { name: "Carboidratos", data: meta_porcentagem_carb },
+                { name: "Proteínas", data: meta_porcentagem_prot },
+                { name: "Gorduras", data: meta_porcentagem_gord }
+            ]
+        });
+    });
+});
+</script>
+</body>
+</html>
